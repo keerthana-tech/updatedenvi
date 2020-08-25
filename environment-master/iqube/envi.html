@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>envitech</title>
+<link rel="stylesheet" href="envii.css">
+<style>
+html{
+background-image:url("back.jpg");
+background-attachment:fixed;
+}
+</style>
+<body>
+ 
+<div class="fullscreen nopadding">
+  <div class="header" id="white">
+    <a class="nav" href="#feedback" >goDown</a>
+    <h1>Environmental Pollution</h1>
+    
+  </div>
+  </div>
+
+<div class="white" >
+  <p>Environmental pollution is defined as the contamination of the physical and biological components of the earth/atmosphere system to such an extent that normal environmental processes are adversely affected.</p>
+  <p>Human activities contaminate ecosystems around the world—from pole to pole, from the highest mountains to the ocean deep. Toxic chemicals can be found in pristine forests and the blood of Arctic animals. Litter floats beneath the surface of oceans miles away from land. Even excess noise and light are interrupting natural patterns and disrupting the lives of animals and people.</p>
+  <img src="images\download.jpg" alt="pollution" style="margin-left:6%">
+  <p>Here are some shocking facts on pollution:
+  <ul>
+  <li>More than 1 billion people worldwide don’t have access to safe drinking water.</li>
+  <li>5000 people die every day as a result of drinking unclean water.</li>
+  <li>The garbage dumped in the ocean every year is roughly around 14 billion pounds. Plastic is the major constituent.</li>
+  <li>Pollution kills more than 1 million seabirds and 100 million mammals every year.</li>
+  <li>People who live in high-density air pollution areas have a 20% higher risk of dying from lung cancer than those living in less polluted areas.</li>
+ <br>
+  </ul>
+  </p>
+  </div>
+
+<div class="semitrans">
+  <h1 style="text-align:center">Major cause for pollution?</h1>
+  <ul>
+  <li>Air pollution ---The burning of fossil fuels for transportation and electricity . The fumes from car exhausts contain dangerous gases . Ammonia is the primary air pollutant that comes from agricultural activities.</li>
+  <li>Water pollution --- Industrial waste is one of the main causes of water pollution. Nutrient pollution is caused by wastewater, sewage, and fertilizers. </li> 
+  <li>Land &amp Soil Pollution ---soil is also polluted through leaking underground septic tanks, sewage systems, the leaching of harmful substances from landfill, and direct discharge of waste water by industrial plants into rivers and oceans.</li>
+  </ul>
+</div>
+<div class="poll">
+
+  <h2 style="text-align:center">Effects of pollution on environment</h2>
+  <img src="images\img1.jpg" alt="land waste">
+  <p class="word">Pollution may muddy landscapes, poison soils and waterways, or kill plants and animals. Humans are also regularly harmed by pollution. Long-term exposure to air pollution, for example, can lead to chronic respiratory disease, lung cancer and other diseases. Toxic chemicals that accumulate in top predators can make some species unsafe to eat. More than one billion people lack access to clean water and 2.4 billion don’t have adequate sanitation, putting them at risk of contracting deadly diseases.</p>
+<h3>give it a read!</h3>
+<ul>
+<li><a href="https://www3.epa.gov/region1/airquality/pdfs/airqualityguideparticles.pdf">air quality guide</a></li>
+<li><a href="https://c402277.ssl.cf1.rackcdn.com/publications/1212/files/original/SOLVING_PLASTIC_POLLUTION_THROUGH_ACCOUNTABILITY_ENF_SINGLE.pdf?1551798060">solving plastic pollution</a></li>
+<li><a href="https://c402277.ssl.cf1.rackcdn.com/publications/1208/files/original/WWF_McK_Plastic_Waste_FinalWeb2.pdf?1560193480">no plastic</a></li>
+</ul>
+</div>
+
+<div class="pub">
+<h1 style="text-align:center">Government iniatives</h1>
+<p>We take a look at six crucial eco-friendly steps taken by the Indian government.<p>
+<ul>
+<li>Swachh Bharat Abhiyan</li>
+<li>Clean Ganga Mission</li>
+<li>National Air Quality Index</li>
+<li>Toilets Before Temples</li>
+<li>Mount Everest Ascent</li>
+<li>Water Conservation</li>
+</ul>
+<div id="feedback"  style="border:solid;">
+  <h3>Send your feedback here</h3>
+  <form id="form" action="https://formspree.io/xwkrjney" method="POST">
+  <label>Email:</label>
+  <input type="email" style="height: 30px; width:195px;" class="formClass" name="email" /><br><br>
+  <label>Message:</label>
+  <input style="min-height: 50px;" type="text" class="formClass"name="message" /><br><br>
+  <button id="button" class="formClass" style="height: 25px;">Submit</button>
+  <p id="status" ></p>
+</form>
+
+
+
+</div>
+
+</div> 
+
+
+<footer>
+  <a class="nav header " href="#white" >goTop</a>
+<img src="images\logo-white.png" alt="iqube logo" class="center" style="background-color:#000000;">
+</footer>
+</body>
+ 
+ 
+ <script>
+  window.addEventListener("DOMContentLoaded", function() {
+
+   
+    
+    var form = document.getElementById("form");
+    var button = document.getElementById("button");
+    var status = document.getElementById("status");
+
+    
+    
+    
+  
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      var data = new FormData(form);
+      ajaxreq(form.method, form.action, data,status);
+    });
+  });
+  
+
+
+  function ajaxreq(method, url, data,s) {
+    var req = new XMLHttpRequest();
+    req.open(method, url);
+    req.setRequestHeader("Accept", "application/json");
+    req.onreadystatechange = function() {
+     
+      if (req.status == 200 && req.readyState == 4 ) {
+        form.reset();
+      button.style = "display: none ";
+      
+      s.innerHTML = "thank you for your feedback";
+      } else {
+        s.innerHTML = "something went wrong!";
+        
+      }
+    };
+    req.send(data);
+    
+  }
+</script>
+</html>
